@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: Auctionworthy
+## Notes: Tooltip addon for auctions. /auctionworthy or /worthy for options.
+## Author: spzilyk
+## Version: 1.0
+## Dependencies: Auctionator
+## SavedVariables: AuctionworthySavedOptions
+
+Auctionworthy.lua
