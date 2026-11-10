@@ -21,7 +21,7 @@ AUCTIONATOR_SHOW_ST_PRICE	= 0;
 AUCTIONATOR_SHOW_TIPS		= 1;
 AUCTIONATOR_DEF_DURATION	= "N";		-- none
 AUCTIONATOR_V_TIPS			= 1;
-AUCTIONATOR_A_TIPS			= 0;		-- off so Auctionworthy can own the AH price line
+AUCTIONATOR_A_TIPS			= 1;		-- stock default; Atr_OnLoad turns this off once if Auctionworthy is enabled
 AUCTIONATOR_D_TIPS			= 1;
 AUCTIONATOR_SHIFT_TIPS		= 1;
 AUCTIONATOR_DE_DETAILS_TIPS	= 4;		-- off by default
@@ -551,6 +551,16 @@ function Atr_OnLoad()
 		AUCTIONATOR_D_TIPS = 0;
 		
 		AUCTIONATOR_SHOW_TIPS = 2;
+	end
+
+	-- Auctionworthy already prints posting price. If it is enabled, AH tooltip
+	-- prices start off once; the checkbox still saves if you turn them back on.
+	local _, _, _, worthyEnabled, _, worthyReason = GetAddOnInfo("Auctionworthy");
+	if (worthyReason ~= "MISSING" and worthyEnabled) then
+		if (not AUCTIONATOR_TOONS[playerName].worthyAhTipsAdjusted) then
+			AUCTIONATOR_A_TIPS = 0;
+			AUCTIONATOR_TOONS[playerName].worthyAhTipsAdjusted = true;
+		end
 	end
 
 	if (AUCTIONATOR_OPEN_FIRST < 2) then	-- set to 2 to indicate it's been migrated

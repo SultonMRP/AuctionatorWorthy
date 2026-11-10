@@ -7,7 +7,7 @@ Install the release zip by extracting it into `Interface\AddOns`. You should end
 - `Interface\AddOns\Auctionator`
 - `Interface\AddOns\Auctionworthy`
 
-Auctionworthy needs Auctionator for prices. After installing, open the auction house and run a full scan once. The scan walks the house in pages of 50, which is what AzerothCore returns.
+Auctionworthy needs Auctionator for prices. After installing, open the auction house and run a full scan once. The scan walks the house in pages of 50, which is what AzerothCore returns. If Auctionworthy is enabled, Auctionator's "Show auction house prices in tooltips" starts off so the two addons do not overlap; you can still turn it back on. Without Auctionworthy, that tip stays on by default.
 
 `/auctionworthy` or `/worthy` opens the tooltip options. Hold Shift for full-stack numbers.
 
